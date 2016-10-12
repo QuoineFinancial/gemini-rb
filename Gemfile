@@ -1,4 +1,13 @@
-source 'https://rubygems.org'
+source "http://rubygems.org"
 
-# Specify your gem's dependencies in gemini-rb.gemspec
-gemspec
+gem "rest-client", "~> 1.7.0"
+gem "virtus"
+
+group :development, :test do
+  gem "byebug"
+end
+
+group :test do
+  gem "rspec"
+  gem "dotenv"
+end

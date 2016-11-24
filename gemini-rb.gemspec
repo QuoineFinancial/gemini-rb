@@ -5,7 +5,7 @@ require 'gemini/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "gemini-rb"
-  spec.version       = Gemini::Rb::VERSION
+  spec.version       = Bitflyer::VERSION
   spec.authors       = ["Cuong Vu"]
   spec.email         = ["cuongvu0103@gmail.com"]
 

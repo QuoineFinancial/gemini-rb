@@ -18,7 +18,7 @@ module Gemini
         else
           RestClient.get(self.to_uri(path))
         end
-      rescue RestClient::BadRequest => e
+      rescue Exception => e
         raise BadRequest.new(e.response)
       end
     end
@@ -26,7 +26,7 @@ module Gemini
     def self.post(path, options = {})
       begin
         RestClient.post(self.to_uri(path), options.to_json, self.headers_for(path, options, "POST"))
-      rescue RestClient::BadRequest => e
+      rescue Exception => e
         raise BadRequest.new(e.response)
       end
     end

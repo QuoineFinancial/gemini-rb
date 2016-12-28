@@ -8,7 +8,7 @@ module Gemini
 
     def self.cancel(options = {})
       Gemini.sanity_check!
-      Gemini::Net.post("/v1/me/order/cancel", options)
+      Gemini::Net.post("/v1/order/cancel", options)
     end
   end
 end

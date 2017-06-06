@@ -36,7 +36,7 @@ module Gemini
     private
 
     def self.headers_for(path, options = {}, method = "GET")
-      payload = {"request" => path, "nonce" => (Time.now.to_f * 10000).to_i.to_s}
+      payload = {"request" => path, "nonce" => (Time.now.to_f * 1_000_000_000).to_i.to_s}
       payload.merge!(options)
       payload_enc = Base64.encode64(payload.to_json).gsub(/\s/, '')
       signature = Digest::HMAC.hexdigest(payload_enc, Gemini.secret, Digest::SHA384)

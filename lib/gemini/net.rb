@@ -3,6 +3,7 @@ require "net/http"
 require 'digest/hmac'
 require 'digest/sha2'
 require 'base64'
+require 'openssl'
 
 module Gemini
   module Net
@@ -39,7 +40,8 @@ module Gemini
       payload = {"request" => path, "nonce" => (Time.now.to_f * 1_000_000_000).to_i.to_s}
       payload.merge!(options)
       payload_enc = Base64.encode64(payload.to_json).gsub(/\s/, '')
-      signature = Digest::HMAC.hexdigest(payload_enc, Gemini.secret, Digest::SHA384)
+      digest = OpenSSL::Digest.new('sha384')
+      signature = OpenSSL::HMAC.hexdigest(digest, Gemini.secret, payload_enc)
       {
         "Content-Type" => "application/json",
         "Accept" => "application/json",

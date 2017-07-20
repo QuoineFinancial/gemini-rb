@@ -6,7 +6,11 @@ require 'openssl'
 module Gemini
   module Net
     def self.to_uri(path)
-      return "https://api.gemini.com#{path}"
+      if Gemini.sandbox
+        "https://api.sandbox.gemini.com#{path}"
+      else
+        "https://api.gemini.com#{path}"
+      end
     end
 
     def self.get(path, options = {}, private_api = false)

@@ -11,6 +11,8 @@ module Gemini
     attr_accessor :key
     # API secret
     attr_accessor :secret
+
+    attr_accessor :sandbox
   end
 
   def self.setup

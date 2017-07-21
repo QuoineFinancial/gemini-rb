@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Cuong Vu"]
   spec.email         = ["cuongvu0103@gmail.com"]
 
-  spec.summary       = %q{Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{Write a longer description or delete this line.}
+  spec.summary       = "Ruby client for Gemini API"
+  spec.description   = "Ruby client for Gemini API"
   spec.homepage      = "https://github.com/vumanhcuongit/gemini-rb"
   spec.license       = "MIT"
 
